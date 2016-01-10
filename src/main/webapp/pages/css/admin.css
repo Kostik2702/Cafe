@@ -1,0 +1,266 @@
+﻿@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+
+body {
+	position:relative;
+	
+}
+
+
+
+.sidebar {
+	width:20%;
+	height:100vh;
+	background:#18181D;
+	position:fixed;
+	left:0;
+	z-index:9999;
+	
+}
+
+.sidebar h3 {
+	padding-top:10px;
+	font-family: 'Open Sans', sans-serif;
+	font-size:16px;
+	font-weight:300;
+	float:left;
+	padding-left:20px;
+	color:#fff;
+	cursor:pointer;
+	margin-bottom:5px;
+	position:relative;
+	display:block;
+	width:100%;
+}
+
+.menu-list {
+	width:75%;
+	max-height:200px;
+	display:none;
+	margin-right:20px;
+	padding-top:10px;
+	position:relative;
+	float:right;
+}
+.menu-list i {
+	padding-right:10px;
+}
+.menu-list a {
+	text-decoration:none;
+	color:#fff;
+	font-family: 'Open Sans', sans-serif;
+	font-size:14px;
+	font-weight:300;
+}
+
+.menu-list a:hover {
+	color:silver;
+}
+
+.menu-list li {
+	display:block;
+	
+	margin-bottom:10px;
+}
+
+.menu-item {
+	
+	width:100%;
+	min-height:35px;
+	margin-top:0px;
+	max-height:350px;
+	
+}
+
+.wrap {
+	width:100%;
+	height:100vh;
+	position:relative;
+	background:url("../images/fon-admin.jpg") no-repeat;
+	background-size:cover;
+}
+
+.work-window-space {
+	width:700px;
+	height:750px;
+	position:relative;
+	margin-left:25%;
+	
+	padding-top:64px;
+}
+
+.workspace {
+	width:698px;
+	height:700px;
+	
+	border:1px solid silver;
+}
+
+.workspace p {
+	color:#fff;
+	padding-left:20px;
+	padding-right:20px;
+	font-family: 'Open Sans', sans-serif;
+	font-size:16px;
+	font-weight:300;
+	line-height:15px;
+}
+
+.head-space {
+	width:100%;
+	height:34px;
+	
+	
+	border-radius: 6px 6px 0 0; /* закругление углов для всех, кто понимает */
+	position:absolute;
+	top:30px;
+	background:url("../images/bg2.png");
+}
+
+.head-space h3 {
+	width:300px;
+	padding-top:10px;
+	font-family: 'Open Sans', sans-serif;
+	font-size:16px;
+	font-weight:300;
+	float:left;
+	padding-left:20px;
+	
+}
+
+.left-corner {
+	width:10px;
+	height:100%;
+	background:url("../images/shadow-left.png");
+	float:left;
+	border-radius:5px 0 0 0 ;
+}
+
+.right-corner {
+	width:10px;
+	height:100%;
+	background:url("../images/shadow-rightt.png");
+	float:right;
+	border-radius:0px 5px 0 0 ;
+}
+
+.user-info-item {
+	width:90%;
+	height:50px;
+	border:1px solid #fff;
+	margin: 0 auto;
+	
+}
+.user-info-item h3 {
+	
+	float:left;
+	text-align:center;
+	padding-top:10px;
+	font-family: 'Open Sans', sans-serif;
+	font-size:24px;
+	font-weight:300;
+	padding-left:20px;
+	color:#fff;
+}
+
+.user-info-item a {
+	
+	float:right;
+	text-decoration:none;
+	color:#fff;
+	padding:10px 10px 10px 10px;
+}
+
+.user-info-item a:hover {
+	
+	color:silver;
+}
+
+.user-info-item a:nth-child(4) {
+	
+	border-left:1px solid #fff;
+}
+.user-profile-info {
+	width:90%;
+	margin:0 auto;
+	min-height:500px;
+	
+}
+
+.left-side-i {
+	padding:10px;
+	width:50%;
+	height:280px;
+	float:left;
+	
+}
+
+.right-side-i {
+	
+	width:46.7%;
+	height:300px;
+	float:left;
+	
+}
+
+.avatar-u {
+		width:99%;
+		height:99%;
+		border:1px solid #fff;
+		text-align:center;
+	
+}
+
+.avatar-u  img {
+	height:100%;
+	width:auto;
+	
+}
+
+.info-item-u {
+	width:95%;
+	height:50px;
+	
+	margin:10px auto;
+	
+}
+
+.info-item-u h4 {
+	color:#fff;
+	padding-left:10px;
+	padding-top:5px;
+	font-family: 'Open Sans', sans-serif;
+	font-size:18px;
+	font-weight:300;
+	margin-bottom:5px;
+}
+
+#content-n-u {
+	
+	color:#fff;
+	padding-left:10px;
+	font-family: 'Open Sans', sans-serif;
+	font-size:16px;
+	font-weight:300;
+}
+
+.bottom-side-u {
+	width:98%;
+	height:50px;
+	float:left;
+
+	padding-left:20px;
+}
+
+
+.bottom-side-u  a {
+	
+	float:left;
+	text-decoration:none;
+	color:#fff;
+	padding:10px 10px 10px 10px;
+}
+
+.bottom-side-u  a:hover {
+	
+	color:silver;
+}

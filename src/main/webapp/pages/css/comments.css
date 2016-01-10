@@ -1,0 +1,78 @@
+.user-info {
+	width:150px;
+	height:200px;
+	
+	float:left;
+}
+.comment {
+	width:350px;
+	height:200px;
+	
+	float:left;
+}
+
+.comment p {
+	padding-top:26px;
+	padding-left:20px;
+	font-size:18px;
+	font-family: 'Bad Script', cursive;
+	padding-bottom:15px;
+	line-height:23px;
+}
+
+.avatar {
+	width:150px;
+	height:150px;
+	
+	position:relative;
+}
+.avatar img {
+	width:150px;
+	height:150px;
+}
+
+.nickname {
+	padding-top:2px;
+	text-align:center;
+	font-size:20px;
+	font-family: 'Bad Script', cursive;
+	padding-bottom:2px!important;
+}
+
+.date {
+	text-align:center;
+	font-size:16px;
+	font-family: 'Bad Script', cursive;
+}
+
+.a-border-t {
+	width:100%;
+	height:4px;
+	background:url("../images/left-d.jpg");
+	position:absolute;
+	top:0px;
+}
+
+.a-border-d {
+	width:100%;
+	height:4px;
+	background:url("../images/left-d.jpg");
+	position:absolute;
+	bottom:0px;
+}
+
+.a-border-l {
+	width:4px;
+	height:100%;
+	background:url("../images/fon2.jpg");
+	position:absolute;
+	left:0px;
+}
+
+.a-border-r {
+	width:4px;
+	height:100%;
+	background:url("../images/fon2.jpg");
+	position:absolute;
+	right:0px;
+}

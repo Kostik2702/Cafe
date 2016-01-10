@@ -1,0 +1,92 @@
+.full-photo {
+	width:500px;
+	height:400px;
+	background:#000;
+	margin:0 auto;
+	overflow:hidden;
+	position:relative;
+}
+
+#lb {
+	width:500px;
+	height:400px;
+	
+}
+
+.p-spacer {
+	width:100%;
+	height:35px;
+}
+
+.full-photo img {
+	width:100%;
+	height:auto;
+	position:absolute;
+	margin:auto;
+	z-index:1;
+	top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.ff-border-t {
+	width:100%;
+	height:5px;
+	position:absolute;
+	top:0;
+	background:url("../images/left-d.jpg");
+	z-index:999;
+}
+
+.ff-border-b{
+	width:100%;
+	height:5px;
+	position:absolute;
+	bottom:0;
+	background:url("../images/left-d.jpg");
+	z-index:999;
+}
+
+.ff-border-l{
+	width:5px;
+	height:100%;
+	position:absolute;
+	left:0;
+	background:url("../images/fon2.jpg");
+	z-index:999;
+}
+
+.ff-border-r{
+	width:5px;
+	height:100%;
+	position:absolute;
+	right:0;
+	background:url("../images/fon2.jpg");
+	z-index:999;
+}
+
+
+
+#prev {
+	cursor:pointer;
+	font-size:32px;
+	font-family: 'Bad Script', cursive;
+	text-decoration:none;
+	color:#000;
+	margin-top:50px;
+	float:left;
+	margin-left:40px;
+}
+
+#prev:hover, #next:hover {
+	color:#fff;
+}
+
+#next {
+	cursor:pointer;
+	font-size:32px;
+	font-family: 'Bad Script', cursive;
+	text-decoration:none;
+	color:#000;
+	margin-top:50px;
+	float:right;
+	margin-right:40px;
+}

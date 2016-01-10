@@ -1,0 +1,140 @@
+.comment-space {
+	width:550px;
+	height:600px;
+	margin:75px 35px;
+	background:url("../images/1.jpg");
+	position:relative;
+}
+
+.comment-space h1 {
+	text-align:center;
+	font-size:32px;
+	font-family: 'Bad Script', cursive;
+	padding-top:40px;
+}
+
+.comment-space form {
+	width:450px;
+	height:450px;
+	margin:30px auto;
+	
+}
+
+.comment-space input {
+	width:400px;
+	height:38px;
+	margin:20px 30px;
+	border:2px solid #000;
+	border-radius:15px;
+	background:none;
+	font-family: 'Bad Script', cursive;
+	color:#000;
+	font-size:18px;
+}
+
+.comment-space textarea {
+	width:400px;
+	height:200px;
+	margin:20px 30px;
+	border:2px solid #000;
+	border-radius:15px;
+	background:none;
+	font-family: 'Bad Script', cursive;
+	color:#000;
+	font-size:18px;
+}
+
+.comment-space input::-webkit-input-placeholder { color: #000; }
+.comment-space input::-moz-placeholder { color: #000; }
+
+.comment-space textarea::-webkit-input-placeholder { color: #000; 
+	padding-top:50px;
+	text-align:center;
+}
+.comment-space textarea::-moz-placeholder { color: #000; 
+	padding-top:50px;
+	text-align:center;
+}
+
+input[type="text"] {
+	outline:none;
+}
+
+input[type="e-mail"] {
+	outline:none;
+}
+textarea[type="text"] {
+	outline:none;
+}
+
+.comment-button-spacer {
+	position:absolute;
+	width:215px;
+	height:80px;
+	bottom:35px;
+	right:35px;
+	
+	
+}
+
+.comment-button-spacer button {
+	background:none;
+	overflow:hidden;
+	border:none;
+	width:100%;
+	height:100%;
+	cursor:pointer;
+	font-size:32px;
+	font-family: 'Bad Script', cursive;
+}
+
+.comment-button-spacer button:hover {
+	color:#fff;
+}
+
+.comment-space a {
+	position:absolute;
+	cursor:pointer;
+	font-size:32px;
+	font-family: 'Bad Script', cursive;
+	text-decoration:none;
+	color:#000;
+	left:60px;
+	bottom:58px;
+}
+
+.comment-space a:hover {
+	color:#fff;
+}
+
+.comment-border-t {
+	width:100%;
+	height:10px;
+	position:absolute;
+	top:0px;
+	background:url("../images/left-d.jpg");
+}
+
+.comment-border-d {
+	width:100%;
+	height:10px;
+	position:absolute;
+	bottom:0px;
+	background:url("../images/left-d.jpg");
+}
+
+.comment-border-l {
+	width:10px;
+	height:100%;
+	position:absolute;
+	left:0px;
+	background:url("../images/fon2.jpg");
+}
+
+.comment-border-r {
+	width:10px;
+	height:100%;
+	position:absolute;
+	right:0px;
+	background:url("../images/fon2.jpg");
+}

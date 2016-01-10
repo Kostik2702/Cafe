@@ -1,0 +1,126 @@
+﻿@import url(https://fonts.googleapis.com/css?family=Bad+Script&subset=latin,cyrillic);
+
+body {
+	background:url("../images/fon5.jpg")
+}
+
+
+.sizer {
+	width:900px;
+	height:1000px;
+	background:url("../images/siezr-fon.jpg");
+	margin:0 auto;
+	position:relative;
+}
+
+
+.content-block {
+	width:600px;
+	height:100%;
+	position:relative;
+	float:left;
+}
+#sidebar-block {
+	width:300px;
+	height:100%;
+	background:url("../images/fon2.jpg");
+	float:left;
+}
+
+.footer {
+	width:100%;
+	height:50px;
+	background:url("../images/fon3.jpg");
+	
+}
+
+.header {
+	width:600px;
+	height:200px;
+	background:url("../images/header.png");
+	margin-left:10px;
+}
+
+.header h1 {
+	font-size:64px;
+	font-family: 'Bad Script', cursive;
+	text-align:center;
+	padding-top:90px;
+}
+
+.border-block {
+	width:30px;
+	height:100%;
+	position:absolute;
+	top:0px;
+	left:-10px;
+	background:url("../images/fon2.jpg");
+}
+
+#nav-menu {
+	width:300px;
+	height:980px;
+	background:url("../images/menu2.png");
+	display:none;
+	
+}
+
+#nav-menu h2 {
+	text-align:center;
+	padding-top:150px;
+	font-size:55px;
+	font-family: 'Bad Script', cursive;
+}
+#nav-menu  ul {
+		margin-top:75px;
+}
+
+#nav-menu  ul li {
+		margin-top:25px;
+}
+
+#nav-menu  ul  li a {
+	text-decoration:none;
+	color:#000;
+	font-size:32px;
+	text-align:center;
+	display:block;
+	font-family: 'Bad Script', cursive;
+	padding:10px 0;
+	
+}
+
+#nav-menu  ul  li a:hover {
+	background-color:rgba(0,0,0,0.5);
+	color:#fff;
+}
+
+.menu {
+	padding:0px 40px 0px 45px;
+}
+.menu:after {
+	display:table;
+	clear:both;
+	content:"";
+}
+
+#arrow{
+	
+}
+.arrow  {
+	width:300px;
+	height:20px;
+	background:rgba(0,0,0,0.3);
+}
+
+.arrow1  {
+	
+}
+
+.arrow:hover{
+	background:rgba(0,0,0,0.7);
+}
+
+.active {
+	background-position: right 12px;
+}

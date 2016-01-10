@@ -1,0 +1,114 @@
+.login-space {
+	width:550px;
+	height:400px;
+	background:url("../images/1.jpg");
+	margin:75px 35px;
+	position:relative;
+}
+
+.login-space h1 {
+	text-align:center;
+	font-size:42px;
+	font-family: 'Bad Script', cursive;
+	padding-top:40px;
+}
+.login-space input::-webkit-input-placeholder { color: #000; }
+.login-space input::-moz-placeholder { color: #000; }
+input[type="text"] {
+	outline:none;
+}
+input[type="password"] {
+	outline:none;
+}
+.login-space form {
+	width:400px;
+	height:300px;
+	margin:30px auto;
+}
+
+.login-space input {
+	width:300px;
+	height:30px;
+	margin:20px 45px;
+	border:2px solid #000;
+	border-radius:15px;
+	background:none;
+	font-family: 'Bad Script', cursive;
+	color:#000;
+	font-size:18px;
+}
+
+.login-space a {
+	position:absolute;
+	cursor:pointer;
+	font-size:32px;
+	font-family: 'Bad Script', cursive;
+	text-decoration:none;
+	color:#000;
+	left:60px;
+	bottom:50px;
+}
+
+.login-space a:hover {
+	color:#fff;
+}
+
+.login-button-spacer {
+	position:absolute;
+	width:100px;
+	height:50px;
+	top:300px;
+	right:100px;
+	
+}
+
+.login-button-spacer button {
+	background:none;
+	overflow:hidden;
+	border:none;
+	width:100%;
+	height:100%;
+	cursor:pointer;
+	font-size:32px;
+	font-family: 'Bad Script', cursive;
+}
+
+.login-button-spacer button:hover {
+	color:#fff;
+}
+
+
+
+
+
+.login-border-t {
+	width:100%;
+	height:10px;
+	position:absolute;
+	top:0px;
+	background:url("../images/left-d.jpg");
+}
+
+.login-border-d {
+	width:100%;
+	height:10px;
+	position:absolute;
+	bottom:0px;
+	background:url("../images/left-d.jpg");
+}
+
+.login-border-l {
+	width:10px;
+	height:100%;
+	position:absolute;
+	left:0px;
+	background:url("../images/fon2.jpg");
+}
+
+.login-border-r {
+	width:10px;
+	height:100%;
+	position:absolute;
+	right:0px;
+	background:url("../images/fon2.jpg");
+}

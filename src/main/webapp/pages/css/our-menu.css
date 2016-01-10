@@ -1,0 +1,34 @@
+.menu-item {
+	width:400px;
+	min-height:100px;
+	margin-bottom:30px;
+	padding-left:20px;
+	
+}
+
+.menu-item h2 {
+	padding-top:15px;
+	padding-bottom:15px;
+	text-align:left;
+	font-size:28px;
+	font-family: 'Bad Script', cursive;
+	
+}
+
+.menu-item ul {
+	padding-left:50px;
+	text-align:left;
+	font-size:20px;
+	font-family: 'Bad Script', cursive;
+}
+
+.menu-item li {
+	margin-bottom:10px;
+}
+
+.menu-item span {
+	
+	font-size:20px;
+	font-family: 'Bad Script', cursive;
+	float:right;
+}

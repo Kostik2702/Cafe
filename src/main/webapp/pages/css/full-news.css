@@ -1,0 +1,32 @@
+.news-content {
+	width:600px;
+	height:750px;
+	
+	margin-top:50px;
+}
+#news-full{
+	width:550px;
+	height:610px;
+	background:silver;
+	margin-left:35px;
+	margin-bottom:35px;
+	background:url("../images/1.jpg");
+	position:relative;
+	
+}
+
+.border-l-b{
+	position:absolute;
+	width:10px;
+	height:610px;
+	background:url("../images/fon2.jpg");
+	left:0px;
+}
+
+.border-r-b{
+	position:absolute;
+	width:10px;
+	height:610px;
+	background:url("../images/fon2.jpg");
+	right:0px;
+}
