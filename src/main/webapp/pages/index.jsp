@@ -53,7 +53,7 @@
           <li><a href="<c:url value="/loginpage" />">Авторизация</a></li>
           </sec:authorize>
           <sec:authorize access="isAuthenticated()">
-            <li><a href="/logout">Выход</a></li>
+            <li><a href="<c:url value="/logout" />">Выход</a></li>
           </sec:authorize>
         </ul>
       </div>

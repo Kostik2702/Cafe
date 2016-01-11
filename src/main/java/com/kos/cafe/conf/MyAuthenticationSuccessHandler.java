@@ -46,12 +46,10 @@ public class MyAuthenticationSuccessHandler extends SimpleUrlAuthenticationSucce
             roles.add(a.getAuthority());
         }
 
-        if (isDba(roles)) {
-            url = "/db";
-        } else if (isAdmin(roles)) {
+        if (isAdmin(roles)) {
             url = "/admin";
         } else if (isUser(roles)) {
-            url = "/home";
+            url = "/";
         } else {
             url="/accessDenied";
         }
@@ -80,10 +78,5 @@ public class MyAuthenticationSuccessHandler extends SimpleUrlAuthenticationSucce
         return false;
     }
 
-    private boolean isDba(List<String> roles) {
-        if (roles.contains("DBA")) {
-            return true;
-        }
-        return false;
-    }
+
 }

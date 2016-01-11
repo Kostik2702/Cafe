@@ -93,14 +93,14 @@
           <li><a href="<c:url value="/news" />">Новости</a></li>
           <li><a href="<c:url value="/gallery" />">Галерея</a></li>
 
-          <li><a href="#">Наше меню</a></li>
-          <li><a href="#">Резерв столика</a></li>
-          <li><a href="#">Отзывы</a></li>
+          <li><a href="<c:url value="/ourmenu" />">Наше меню</a></li>
+          <li><a href="<c:url value="/reserve" />">Резерв столика</a></li>
+          <li><a href="<c:url value="/comments" />">Отзывы</a></li>
           <sec:authorize access="!isAuthenticated()">
             <li><a href="<c:url value="/loginpage" />">Авторизация</a></li>
           </sec:authorize>
           <sec:authorize access="isAuthenticated()">
-            <li><a href="/logout">Выход</a></li>
+            <li><a href="<c:url value="/logout" />">Выход</a></li>
           </sec:authorize>
         </ul>
       </div>
