@@ -21,10 +21,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     private UserService userService;
 
     @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        User user = userService.getUser("colibri");
+    public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
+        User user = userService.getUser(login);
         Set<GrantedAuthority> roles = new HashSet();
-        roles.add(new SimpleGrantedAuthority(UserRoleEnum.USER.name()));
+        roles.add(new SimpleGrantedAuthority(user.getRole()));
 
         UserDetails userDetails =
                 new org.springframework.security.core.userdetails.User(user.getLogin(), user.getPassword(), roles);

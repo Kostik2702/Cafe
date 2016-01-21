@@ -1,5 +1,7 @@
 package com.kos.cafe.conf;
 
+import com.kos.cafe.dao.CommentDAOImpl;
+import com.kos.cafe.dao.UserDaoImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -11,6 +13,10 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 @Configuration
 @ComponentScan("com.kos")
@@ -35,6 +41,23 @@ public class AppConfig extends WebMvcConfigurerAdapter {
     public CommonsMultipartResolver multipartResolver() {
 
         return new CommonsMultipartResolver();
+    }
+
+    @Bean
+    public EntityManager entityManager() {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("palubaJPA");
+        return emf.createEntityManager();
+    }
+
+    @Bean
+    public UserDaoImpl userDao (){
+        return new UserDaoImpl();
+
+    }
+
+    @Bean
+    public CommentDAOImpl commentDAO(){
+        return new CommentDAOImpl();
     }
 
     @Override

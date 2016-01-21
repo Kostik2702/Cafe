@@ -96,11 +96,9 @@ public class MainController {
         return "ourmenu";
     }
 
-    @RequestMapping(value = "/comments", method = RequestMethod.GET)
-    public String commentsPage(ModelMap model) {
-        model.addAttribute("user", getPrincipal());
-        return "comments";
-    }
+
+
+
 
     private String getPrincipal(){
         String userName = null;

@@ -70,7 +70,7 @@
                 <div class="login-button-spacer">
                     <button id="login-button" type="submit">Войти</button>
                 </div>
-                <a href = "<c:url value="/loginpage/register" />">Регистрация</a>
+                <a href = "<c:url value="/register" />">Регистрация</a>
             </form>
 
         </div>

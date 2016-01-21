@@ -2,13 +2,14 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
-
 <html>
 <head>
-    <title>Главная</title>
-    <link   href="<c:url value="/pages/css/reset.css"/>" rel="stylesheet">
-    <link   href="<c:url value="/pages/css/style.css"/>" rel="stylesheet">
-    <link   href="<c:url value="/pages/css/font-awesome.css"/>" rel="stylesheet">
+  <title>Неправильные данные</title>
+  <link   href="<c:url value="/pages/css/reset.css"/>" rel="stylesheet">
+  <link   href="<c:url value="/pages/css/style.css"/>" rel="stylesheet">
+  <link   href="<c:url value="/pages/css/authentication.css"/>" rel="stylesheet">
+  <link   href="<c:url value="/pages/css/add-comment.css"/>" rel="stylesheet">
+  <link   href="<c:url value="/pages/css/reserve.css"/>" rel="stylesheet">
 
   <script  src="<c:url value="/pages/script/jquery-1.11.3.min.js"/>">
 
@@ -36,6 +37,26 @@
     <div class="header">
       <h1>Палуба</h1>
     </div>
+
+    <div class="comment-space">
+      <div class="comment-border-t">
+      </div>
+      <div class="comment-border-d">
+      </div>
+      <div class="comment-border-l">
+      </div>
+      <div class="comment-border-r">
+      </div>
+      <h1>Неверный формат данных</h1>
+
+      <p>
+        <c:out value="${param.message}" />
+      </p>
+
+        <a href = "<c:url value="/" />">На главную</a>
+
+
+    </div>
   </div>
 
   <div id="sidebar-block">
@@ -43,15 +64,14 @@
       <h2>Меню</h2>
       <div class="menu">
         <ul>
+          <li><a href="<c:url value="/" />">На главную</a></li>
           <li><a href="<c:url value="/news" />">Новости</a></li>
           <li><a href="<c:url value="/gallery" />">Галерея</a></li>
           <li><a href="<c:url value="/aboutUs" />">О нас</a></li>
           <li><a href="<c:url value="/ourmenu" />">Наше меню</a></li>
-          <li><a href="<c:url value="/reserve" />">Резерв столика</a></li>
           <li><a href="<c:url value="/comments" />">Отзывы</a></li>
-
           <sec:authorize access="!isAuthenticated()">
-          <li><a href="<c:url value="/loginpage" />">Авторизация</a></li>
+            <li><a href="<c:url value="/loginpage" />">Авторизация</a></li>
           </sec:authorize>
           <sec:authorize access="isAuthenticated()">
             <li><a href="<c:url value="/logout" />">Выход</a></li>

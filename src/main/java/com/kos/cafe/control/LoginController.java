@@ -1,31 +1,56 @@
 package com.kos.cafe.control;
 
 
+import com.kos.cafe.domain.User;
+import com.kos.cafe.service.UserService;
+import com.kos.cafe.service.UserServiceImpl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/loginpage")
 public class LoginController {
+    @Autowired
+    UserServiceImpl userService;
+    @Autowired
+    private ApplicationEventPublisher eventPublisher;
 
     @RequestMapping(method = RequestMethod.GET)
     public String loginPage(Model model){
         return "login";
     }
 
-    @RequestMapping(value = "/register", method = RequestMethod.GET)
-    public String registerPage(ModelMap model) {
-        model.addAttribute("user", getPrincipal());
-        return "register";
-    }
 
+
+
+
+
+
+/*
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public ModelAndView registerUserAccount(@ModelAttribute("user") @Valid final UserDTO userDto, final HttpServletRequest request, final Errors errors) {
+
+
+        final User registered = createUserAccount(userDto);
+        if (registered == null) {
+            // result.rejectValue("email", "message.regError");
+            return new ModelAndView("register", "user", userDto);
+        }
+
+        return new ModelAndView("login");
+    }
+*/
     private String getPrincipal(){
         String userName = null;
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -37,5 +62,7 @@ public class LoginController {
         }
         return userName;
     }
+
+
 
 }

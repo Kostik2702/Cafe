@@ -2,9 +2,12 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
+
 <html>
 <head>
-  <title>Резерв Столика</title>
+  <title>Регистрация</title>
   <link   href="<c:url value="/pages/css/reset.css"/>" rel="stylesheet">
   <link   href="<c:url value="/pages/css/style.css"/>" rel="stylesheet">
   <link   href="<c:url value="/pages/css/authentication.css"/>" rel="stylesheet">
@@ -49,19 +52,20 @@
       </div>
 
       <h1>Регистрация</h1>
-      <form id = "reg-form" action="#" method="GET">
-        <input type="text" id = "login" placeholder="   Login"></br>
-        <input type="password" id = "password"placeholder = "   Password"></br>
-        <input type="password" id = "password-sec" placeholder = "   Password Again"></br>
-        <input type="E-mail" id = "email"placeholder = "   E-mail"></br>
-        <input type="text" id = "name" placeholder="   Name"></br>
-        <input type="text" id = "surname" placeholder="   Surname"></br>
+      <c:url value="/register?${_csrf.parameterName}=${_csrf.token}" var="reg" />
+      <form:form action="${reg}" id = "reg-form"  method="POST"  modelAttribute="userForm" enctype="multipart/form-data">
+        <form:input path="login"  id = "login" placeholder="   Login"/></br>
+        <form:password path="password"  id = "password" placeholder = "   Password"/></br>
+
+        <form:input path="email" id = "email" placeholder = "   E-mail"/></br>
+        <form:input path="name"  id = "name" placeholder="   Name"/></br>
+        <form:input path="surname"  id = "surname" placeholder="   Surname"/></br>
 
         <div class="reg-button-spacer">
           <button id="reg-button" type="submit">Зарегистрироваться</button>
         </div>
         <a href = "<c:url value="/" />">На главную</a>
-      </form>
+      </form:form>
 
     </div>
   </div>
@@ -97,5 +101,9 @@
 <div class="footer">
 
 </div>
+
+<script type="text/javascript">
+
+</script>
 </body>
 </html>
