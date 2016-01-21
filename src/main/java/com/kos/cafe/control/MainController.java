@@ -28,11 +28,7 @@ public class MainController {
         return "index";
     }
 
-    @RequestMapping(value = "/admin", method = RequestMethod.GET)
-    public String adminPage(ModelMap model) {
-        model.addAttribute("user", getPrincipal());
-        return "admin";
-    }
+
 
     @RequestMapping(value = "/loginpage", method = RequestMethod.GET)
     public String loginp(ModelMap model) {
