@@ -43,7 +43,7 @@
     </div>
     <div class="nc-border-b"></div>
     <div class="news-content scrollbar-inner">
-
+    <c:forEach items="${previevs}" var="newsItem">
       <div id="news-preview">
         <div class="border-h">
         </div>
@@ -54,14 +54,13 @@
         <div class="border-r">
         </div>
         <div class="preview-content">
-          <h3>Заголовок</h3>
-          <p>С сегодняшнего дня вы можете посетить наш веб сайт. На нем вы можете просмотреть фотоальбом, оценить меню
-            или зарезервировать столик. Мы работаем и развиваемся для того, чтобы вы получали удовольствие от посещения нашего заведения...</p>
-          <a href="<c:url value="/news/newsFull" />">Читать дальше</a>
+          <h3>${newsItem.subject}</h3>
+          <p>${newsItem.text}</p>
+          <a href="<c:url value="/news/newsFull?news=${newsItem.id}" />">Читать дальше</a>
         </div>
       </div>
 
-
+    </c:forEach>
 
     </div>
   </div>

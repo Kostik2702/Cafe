@@ -78,6 +78,7 @@
 </script>
 </head>
 <body>
+
 <sec:authorize access="!isAuthenticated()">
   <p><a class="btn btn-lg btn-success" href="<c:url value="/login" />" role="button">Войти</a></p>
 </sec:authorize>
@@ -87,7 +88,7 @@
   <div class="menu-item">
     <h3 class="news-button-open"><i class="fa fa-newspaper-o"></i>  Новости </h3>
     <ul class="menu-list news-menu-list">
-      <li><a href="#"><i class="fa fa-plus"></i>Добавить новость</a></li>
+      <li><a href="<c:url value="/admin/addnews" />"><i class="fa fa-plus"></i>Добавить новость</a></li>
       <li><a href="#"><i class="fa fa-minus"></i>Удалить новость</a></li>
       <li><a href="#"><i class="fa fa-list"></i>Список</a></li>
 
@@ -98,7 +99,7 @@
     <ul class="menu-list comments-menu-list">
 
       <li><a href="#"><i class="fa fa-minus"></i>Удалить отзыв</a></li>
-      <li><a href="#"><i class="fa fa-list"></i>Список</a></li>
+      <li><a href="<c:url value="/admin/comments" />"><i class="fa fa-list"></i>Список</a></li>
 
     </ul>
   </div>
@@ -106,7 +107,7 @@
     <h3 class="sends-button-open"><i class="fa fa-envelope-square"></i>  Рассылки  </h3>
     <ul class="menu-list sends-menu-list">
 
-      <li><a href="#"><i class="fa fa-mobile"></i>СМС рассылка</a></li>
+      <li><a href="<c:url value="/admin/sendsms" />"><i class="fa fa-mobile"></i>СМС рассылка</a></li>
       <li><a href="#"><i class="fa fa-envelope-o"></i>E-mail рассылка</a></li>
 
     </ul>

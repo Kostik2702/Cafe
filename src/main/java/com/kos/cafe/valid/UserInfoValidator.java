@@ -5,7 +5,7 @@ import com.kos.cafe.domain.User;
 
 public class UserInfoValidator {
 
-    static String resultMessage = "";
+
 
     public static String  valid(User user){
         StringBuilder builder = new StringBuilder();

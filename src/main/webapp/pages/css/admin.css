@@ -1,4 +1,4 @@
-п»ї@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
 
 body {
 	position:relative;
@@ -81,7 +81,7 @@ body {
 
 .work-window-space {
 	width:700px;
-	height:750px;
+	height:600px;
 	position:relative;
 	margin-left:25%;
 	
@@ -90,7 +90,7 @@ body {
 
 .workspace {
 	width:698px;
-	height:700px;
+	height:550px;
 	
 	border:1px solid silver;
 }
@@ -110,7 +110,7 @@ body {
 	height:34px;
 	
 	
-	border-radius: 6px 6px 0 0; /* Р·Р°РєСЂСѓРіР»РµРЅРёРµ СѓРіР»РѕРІ РґР»СЏ РІСЃРµС…, РєС‚Рѕ РїРѕРЅРёРјР°РµС‚ */
+	border-radius: 6px 6px 0 0; /* закругление углов для всех, кто понимает */
 	position:absolute;
 	top:30px;
 	background:url("../images/bg2.png");
@@ -264,3 +264,93 @@ body {
 	
 	color:silver;
 }
+
+#add-news-form{
+	width:100%;
+	min-height:400px;
+	
+	padding-top:15px;
+	position:relative;
+}
+
+#add-news-form input {
+	width:85%;
+	height:30px;
+	margin:20px 50px;
+	border:1px solid #fff;
+	
+	background:none;
+	font-family: 'Open Sans', sans-serif;
+	font-weight:300;
+	color:#fff;
+	font-size:18px;
+
+}
+
+#add-news-form textarea {
+	
+	width:85%;
+	height:300px;
+	margin:30px 50px;
+	border:1px solid #fff;
+	border-radius:15px;
+	background:none;
+	font-family: 'Open Sans', sans-serif;
+	font-weight:300;
+	color:#fff;
+	font-size:18px;
+}
+
+input::-webkit-input-placeholder { color:#fff; }
+input::-moz-placeholder { color: #fff; }
+
+textarea::-webkit-input-placeholder { color: #fff; 
+	padding-top:50px;
+	text-align:center;
+}
+textarea::-moz-placeholder { color: #fff; 
+	padding-top:50px;
+	text-align:center;
+}
+input[type="text"] {
+	outline:none;
+}
+
+input[type="e-mail"] {
+	outline:none;
+}
+textarea[type="text"] {
+	outline:none;
+}
+
+.comment-button-spacer {
+	position:absolute;
+	width:230px;
+	height:80px;
+	bottom:-60px;
+	right:235px;
+	
+	
+}
+
+.comment-button-spacer button {
+	color:#fff;
+	background:none;
+	overflow:hidden;
+	border:none;
+	width:100%;
+	height:100%;
+	cursor:pointer;
+	font-size:32px;
+	font-family: 'Open Sans', sans-serif;
+	font-weight:300;
+}
+
+.comment-button-spacer button:hover {
+	color:silver;
+}
+
+
+
+
+

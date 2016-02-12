@@ -68,11 +68,7 @@ public class MainController {
         return "redirect:/login?logout";
     }
 
-    @RequestMapping(value = {  "/news" }, method = RequestMethod.GET)
-    public String newsPage(ModelMap model) {
-        model.addAttribute("user", getPrincipal());
-        return "news";
-    }
+
 
     @RequestMapping(value = {  "/gallery" }, method = RequestMethod.GET)
     public String galleryPage(ModelMap model) {

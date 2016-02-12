@@ -1,18 +1,33 @@
 package com.kos.cafe.control;
 
-import com.kos.cafe.domain.Comment;
+import com.kos.cafe.domain.News;
+import com.kos.cafe.domain.NewsDTO;
+import com.kos.cafe.domain.SMSDTO;
+import com.kos.cafe.service.CommentsServiceImpl;
+import com.kos.cafe.service.NewsServiceImpl;
+import com.kos.cafe.valid.NewsValidator;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
+
+    @Autowired
+    CommentsServiceImpl commentsService;
+    @Autowired
+    NewsServiceImpl newsService;
+
+
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView start(ModelAndView model){
 
@@ -21,6 +36,75 @@ public class AdminController {
 
         return modelAndView;
     }
+
+    @RequestMapping(value = "/comments",method = RequestMethod.GET)
+    public ModelAndView commentsList(ModelAndView model){
+
+        ModelAndView modelAndView = new ModelAndView("commentsAdm");
+        modelAndView.addObject("user", getPrincipal());
+        modelAndView.addObject("commentsList",commentsService.readAll());
+        return modelAndView;
+
+    }
+
+    @RequestMapping(value = "/addnews",method = RequestMethod.GET)
+     public ModelAndView addNewsPage(ModelAndView model){
+
+        ModelAndView modelAndView = new ModelAndView("addNews");
+        modelAndView.addObject("user", getPrincipal());
+        modelAndView.addObject("news", new NewsDTO());
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/addnews",method = RequestMethod.POST)
+    public String  addNews(ModelAndView model,
+                                @ModelAttribute(value = "news")NewsDTO newsDTO,
+                                HttpServletRequest request,
+                                HttpServletResponse response){
+        model.addObject("user",getPrincipal());
+        String messg = NewsValidator.valid(newsDTO);
+        if (messg.equals("")){
+            News check = newsService.create(newsDTO.getSubject(), newsDTO.getText());
+            if (check!=null){
+
+
+                return "redirect:/admin";
+            }   else {
+
+
+                model.addObject("errmsg", "error in process");
+                return "redirect:/admin?err";
+            }
+        } else {
+
+            model.addObject("user", getPrincipal());
+            model.addObject("errmsg", messg);
+            return "redirect:/admin?err";
+        }
+
+
+
+    }
+
+    @RequestMapping(value = "/sendsms",method = RequestMethod.GET)
+    public ModelAndView sendSMSPage(ModelAndView model){
+
+        ModelAndView modelAndView = new ModelAndView("smssend");
+        modelAndView.addObject("user", getPrincipal());
+        modelAndView.addObject("SMSDTO", new SMSDTO());
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/sendsms",method = RequestMethod.POST)
+    public String  sendSMS(ModelAndView model,
+                           @ModelAttribute(value = "SMSDTO")SMSDTO smsdto,
+                           HttpServletRequest request,
+                           HttpServletResponse response){
+
+        return "redirect:/admin";
+    }
+
+
 
     private String getPrincipal(){
         String userName = null;
@@ -33,4 +117,8 @@ public class AdminController {
         }
         return userName;
     }
+
+
+
+
 }
