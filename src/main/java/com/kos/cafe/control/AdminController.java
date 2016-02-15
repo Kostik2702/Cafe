@@ -50,7 +50,7 @@ public class AdminController {
     @RequestMapping(value = "/addnews",method = RequestMethod.GET)
      public ModelAndView addNewsPage(ModelAndView model){
 
-        ModelAndView modelAndView = new ModelAndView("addNews");
+        ModelAndView modelAndView = new ModelAndView("addnews");
         modelAndView.addObject("user", getPrincipal());
         modelAndView.addObject("news", new NewsDTO());
         return modelAndView;
