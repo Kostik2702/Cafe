@@ -68,4 +68,28 @@ public class Comment implements Serializable {
     public void setDate(Date date) {
         this.date = date;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Comment comment = (Comment) o;
+
+        if (id != comment.id) return false;
+        if (commentText != null ? !commentText.equals(comment.commentText) : comment.commentText != null) return false;
+        if (author != null ? !author.equals(comment.author) : comment.author != null) return false;
+        if (date != null ? !date.equals(comment.date) : comment.date != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (commentText != null ? commentText.hashCode() : 0);
+        result = 31 * result + (author != null ? author.hashCode() : 0);
+        result = 31 * result + (date != null ? date.hashCode() : 0);
+        return result;
+    }
 }

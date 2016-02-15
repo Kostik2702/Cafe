@@ -42,4 +42,25 @@ public class NewsPreview {
     public void setId(long id) {
         this.id = id;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        NewsPreview that = (NewsPreview) o;
+
+        if (id != that.id) return false;
+        if (subject != null ? !subject.equals(that.subject) : that.subject != null) return false;
+        return !(text != null ? !text.equals(that.text) : that.text != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (subject != null ? subject.hashCode() : 0);
+        result = 31 * result + (text != null ? text.hashCode() : 0);
+        return result;
+    }
 }
