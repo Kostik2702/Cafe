@@ -89,7 +89,7 @@
     <h3 class="news-button-open"><i class="fa fa-newspaper-o"></i>  Новости </h3>
     <ul class="menu-list news-menu-list">
       <li><a href="<c:url value="/admin/addnews" />"><i class="fa fa-plus"></i>Добавить новость</a></li>
-      <li><a href="#"><i class="fa fa-minus"></i>Удалить новость</a></li>
+
       <li><a href="#"><i class="fa fa-list"></i>Список</a></li>
 
     </ul>
@@ -98,20 +98,12 @@
     <h3 class="comments-button-open"><i class="fa fa-comments-o"></i>  Отзывы  </h3>
     <ul class="menu-list comments-menu-list">
 
-      <li><a href="#"><i class="fa fa-minus"></i>Удалить отзыв</a></li>
+
       <li><a href="<c:url value="/admin/comments" />"><i class="fa fa-list"></i>Список</a></li>
 
     </ul>
   </div>
-  <div class="menu-item">
-    <h3 class="sends-button-open"><i class="fa fa-envelope-square"></i>  Рассылки  </h3>
-    <ul class="menu-list sends-menu-list">
 
-      <li><a href="<c:url value="/admin/sendsms" />"><i class="fa fa-mobile"></i>СМС рассылка</a></li>
-      <li><a href="#"><i class="fa fa-envelope-o"></i>E-mail рассылка</a></li>
-
-    </ul>
-  </div>
   <div class="menu-item">
     <h3 class="users-button-open"><i class="fa  fa-users"></i>  Пользователи  </h3>
     <ul class="menu-list users-menu-list">
@@ -122,17 +114,7 @@
     </ul>
   </div>
 
-  <div class="menu-item">
-    <h3 class="menus-button-open"><i class="fa  fa-list-alt"></i>  Меню ресторана </h3>
-    <ul class="menu-list menus-menu-list">
-      <li><a href="#"><i class="fa fa-plus"></i>Добавить раздел</a></li>
-      <li><a href="#"><i class="fa fa-minus"></i>Удалить раздел</a></li>
 
-      <li><a href="#"><i class="fa fa-list"></i>Список</a></li>
-
-
-    </ul>
-  </div>
 
   <div class="menu-item">
     <h3 class="actions-button-open"><i class="fa  fa-list-alt"></i>  Действия  </h3>

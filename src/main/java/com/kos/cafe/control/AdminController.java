@@ -2,7 +2,6 @@ package com.kos.cafe.control;
 
 import com.kos.cafe.domain.News;
 import com.kos.cafe.domain.NewsDTO;
-import com.kos.cafe.domain.SMSDTO;
 import com.kos.cafe.service.CommentsServiceImpl;
 import com.kos.cafe.service.NewsServiceImpl;
 import com.kos.cafe.valid.NewsValidator;
@@ -86,23 +85,6 @@ public class AdminController {
 
     }
 
-    @RequestMapping(value = "/sendsms",method = RequestMethod.GET)
-    public ModelAndView sendSMSPage(ModelAndView model){
-
-        ModelAndView modelAndView = new ModelAndView("smssend");
-        modelAndView.addObject("user", getPrincipal());
-        modelAndView.addObject("SMSDTO", new SMSDTO());
-        return modelAndView;
-    }
-
-    @RequestMapping(value = "/sendsms",method = RequestMethod.POST)
-    public String  sendSMS(ModelAndView model,
-                           @ModelAttribute(value = "SMSDTO")SMSDTO smsdto,
-                           HttpServletRequest request,
-                           HttpServletResponse response){
-
-        return "redirect:/admin";
-    }
 
 
 
