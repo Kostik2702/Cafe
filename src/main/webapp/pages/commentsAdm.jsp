@@ -16,6 +16,7 @@
   <link   href="<c:url value="/pages/css/com-list.css"/>" rel="stylesheet">
   <link   href="<c:url value="/pages/css/jquery.scrollbar.css"/>" rel="stylesheet">
   <link   href="<c:url value="/pages/css/font-awesome.css"/>" rel="stylesheet">
+  <link  href= "<c:url value="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>" rel="stylesheet">
 
 
 

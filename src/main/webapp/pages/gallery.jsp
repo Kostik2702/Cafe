@@ -59,28 +59,21 @@
       </div>
       <div class="photos ">
         <div class="inside scrollbar-inner">
-          <a href="<c:url value="/pages/images/ship2.jpg" />"  class="photo-link" data-lightbox="album">
+
+          <c:forEach items="${photos}" var="photo">
+          <a  href="<c:url value="/gallery/image/${photo.id}" />"  class="photo-link" data-lightbox="album">
             <div class="photo-preview">
               <div class="p-preview-border-t"></div>
               <div class="p-preview-border-b"></div>
               <div class="p-preview-border-l"></div>
               <div class="p-preview-border-r"></div>
-              <img src="<c:url value="/pages/images/ship2.jpg" />">
+              <img  src="<c:url value="/gallery/image/${photo.id}" />" alt="photo">
 
             </div>
           </a>
+          </c:forEach>
 
 
-          <a href="<c:url value="/pages/images/ship1.jpg" />" class="photo-link" data-lightbox="album">
-            <div class="photo-preview">
-              <div class="p-preview-border-t"></div>
-              <div class="p-preview-border-b"></div>
-              <div class="p-preview-border-l"></div>
-              <div class="p-preview-border-r"></div>
-              <img src="<c:url value="/pages/images/ship1.jpg" />">
-
-            </div>
-          </a>
 
 
 

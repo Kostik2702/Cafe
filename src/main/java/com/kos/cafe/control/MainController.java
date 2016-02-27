@@ -70,11 +70,6 @@ public class MainController {
 
 
 
-    @RequestMapping(value = {  "/gallery" }, method = RequestMethod.GET)
-    public String galleryPage(ModelMap model) {
-        model.addAttribute("user", getPrincipal());
-        return "gallery";
-    }
 
     @RequestMapping(value = {  "/reserve" }, method = RequestMethod.GET)
     public String reservePage(ModelMap model) {

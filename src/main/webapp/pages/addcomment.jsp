@@ -12,6 +12,7 @@
   <link   href="<c:url value="/pages/css/authentication.css"/>" rel="stylesheet">
   <link   href="<c:url value="/pages/css/add-comment.css"/>" rel="stylesheet">
   <link   href="<c:url value="/pages/css/font-awesome.css"/>" rel="stylesheet">
+  <link  href= "<c:url value="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>" rel="stylesheet">
 
   <script  src="<c:url value="/pages/script/jquery-1.11.3.min.js"/>">
 

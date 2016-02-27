@@ -134,10 +134,10 @@
         <div class="right-corner"></div>
       </div>
       <div class="workspace scrollbar-inner">
-        <c:url value="/admin/addnews?${_csrf.parameterName}=${_csrf.token}" var="addnews" />
-        <form:form id="add-news-form" action="${addnews}" method="POST" modelAttribute="news">
-          <form:input path="subject"  id="news-title"  placeholder=" Заголовок"/>
-          <form:textarea path="text"  id="news-text"  placeholder=" Текст Новости"></form:textarea>
+        <c:url value="/admin/addphoto?${_csrf.parameterName}=${_csrf.token}" var="addphoto" />
+        <form:form id="add-news-form" action="${addphoto}" method="POST" enctype="multipart/form-data" modelAttribute="photoDTO">
+          <form:input  type="file" name="photo" id="news-title"  placeholder=" Заголовок" path="photo"/>
+
           <div class="comment-button-spacer">
             <button id="comment-button" type="submit">Опубликовать</button>
           </div>

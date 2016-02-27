@@ -15,6 +15,7 @@
   <link   href="<c:url value="/pages/css/admin.css"/>" rel="stylesheet">
   <link   href="<c:url value="/pages/css/jquery.scrollbar.css"/>" rel="stylesheet">
   <link   href="<c:url value="/pages/css/font-awesome.css"/>" rel="stylesheet">
+  <link  href= "<c:url value="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>" rel="stylesheet">
 
 
 
@@ -119,6 +120,7 @@
   <div class="menu-item">
     <h3 class="actions-button-open"><i class="fa  fa-list-alt"></i>  Действия  </h3>
     <ul class="menu-list actions-menu-list">
+      <li><a class="btn" href="<c:url value="/admin/addphoto" />" ><i class="fa fa-photo"></i>Выход</a></li>
       <li><a class="btn" href="<c:url value="/logout" />" role="button"><i class="fa fa-sign-out"></i>Выход</a></li>
 
 

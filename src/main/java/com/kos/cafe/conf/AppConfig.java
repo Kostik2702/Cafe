@@ -1,8 +1,6 @@
 package com.kos.cafe.conf;
 
-import com.kos.cafe.dao.CommentDAOImpl;
-import com.kos.cafe.dao.NewsDAOImpl;
-import com.kos.cafe.dao.UserDaoImpl;
+import com.kos.cafe.dao.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -64,6 +62,8 @@ public class AppConfig extends WebMvcConfigurerAdapter {
     public NewsDAOImpl newsDAO(){
         return new NewsDAOImpl();
     }
+    @Bean
+    public PhotoDAO photoDAO(){return new PhotoDAOImpl();}
 
 
     @Override
