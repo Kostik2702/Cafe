@@ -105,21 +105,14 @@
       </ul>
     </div>
 
-    <div class="menu-item">
-      <h3 class="users-button-open"><i class="fa  fa-users"></i>  Пользователи  </h3>
-      <ul class="menu-list users-menu-list">
 
-        <li><a href="#"><i class="fa fa-list"></i>Список</a></li>
-
-
-      </ul>
-    </div>
 
 
 
     <div class="menu-item">
       <h3 class="actions-button-open"><i class="fa  fa-list-alt"></i>  Действия  </h3>
       <ul class="menu-list actions-menu-list">
+        <li><a class="btn" href="<c:url value="/admin/addphoto" />" ><i class="fa fa-photo"></i>Добавить фото</a></li>
         <li><a class="btn" href="<c:url value="/logout" />" role="button"><i class="fa fa-sign-out"></i>Выход</a></li>
 
 
@@ -135,28 +128,33 @@
         <div class="right-corner"></div>
       </div>
       <div class="workspace scrollbar-inner">
-        <c:forEach items="${commentsList}" var="comment">
-        <div class="comment-data">
-          <div class="left-side-block">
-            <h3>${comment.author.name}${comment.author.surname}</h3>
-            <span><fmt:formatDate pattern="yyyy-MM-dd" value="${comment.date}" /></span>
-          </div>
-          <div class="right-side-block">
-            <div class="comment-content">
-              <div class="inner-c scrollbar-inner">
-                <p>
-                    ${comment.commentText}
-                </p>
-              </div>
+        <div class="user-profile-info">
+          <div class="left-side-i">
+            <div class="avatar-u">
+              <img src = "<c:url value="/pages/images/user.jpg" />">
             </div>
-            <a href="<c:url value="/admin/delete_comment?id=${comment.id}" />">
-              <i class="fa fa-trash-o fa-2x"> </i>
-            </a>
+          </div>
+          <div class="right-side-i">
 
+            <div class="info-item-u">
+              <h4>E-mail:</h4>
+              <span id = "content-n-u">${userItem.email}</span>
+            </div>
+            <div class="info-item-u">
+              <h4>Имя:</h4>
+              <span id = "content-n-u">${userItem.name} ${userItem.surname}</span>
+            </div>
+            <div class="info-item-u">
+              <h4>Статус:</h4>
+              <span id = "content-n-u">${userItem.role}</span>
+            </div>
+          </div>
+          <div class="bottom-side-u">
+            <a href = "#" id = "delete"><i class="fa fa-trash fa-2x"></i></a>
+            <a href = "#" id = "edit"><i class="fa fa-pencil fa-2x"></i></a>
 
           </div>
         </div>
-        </c:forEach>
 
 
 

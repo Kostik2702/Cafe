@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+п»ї@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
 
 body {
 	position:relative;
@@ -110,7 +110,7 @@ body {
 	height:34px;
 	
 	
-	border-radius: 6px 6px 0 0; /* закругление углов для всех, кто понимает */
+	border-radius: 6px 6px 0 0; /* Р·Р°РєСЂСѓРіР»РµРЅРёРµ СѓРіР»РѕРІ РґР»СЏ РІСЃРµС…, РєС‚Рѕ РїРѕРЅРёРјР°РµС‚ */
 	position:absolute;
 	top:30px;
 	background:url("../images/bg2.png");

@@ -10,5 +10,6 @@ public interface CommentsService {
 
     Comment createComment(String message, String login);
     ArrayList<Comment> readAll();
+    void delete(long id);
 
 }

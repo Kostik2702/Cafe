@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.SQLException;
+import java.util.List;
 
 @Service
 @Transactional
@@ -32,6 +33,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User getUser(long id)  {
+        try {
+            return userDAO.read(id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
     public User registerNewUser(User user)  {
         boolean logCheck = usernameExcepted(user.getLogin());
         boolean mailCheck = emailExcepted(user.getEmail());
@@ -45,6 +56,15 @@ public class UserServiceImpl implements UserService {
 
     }
 
+    @Override
+    public List<User> getAll() {
+        return userDAO.readAll();
+    }
+
+    @Override
+    public void delete(long id) {
+        userDAO.delete(id);
+    }
 
 
     public UserDaoImpl getUserDAO() {

@@ -44,4 +44,9 @@ public class CommentsServiceImpl implements CommentsService{
         return res;
     }
 
+    @Override
+    public void delete(long id) {
+        commentDAO.delete(id);
+    }
+
 }

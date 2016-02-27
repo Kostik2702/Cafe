@@ -58,7 +58,10 @@ public class NewsDAOImpl implements NewsDAO{
 
     @Override
     public void delete(long id) {
-        em.remove(em.find(News.class,id));
+        News temp = em.find(News.class, id);
+        em.getTransaction().begin();
+        em.remove(temp);
+        em.getTransaction().commit();
     }
 
     @Override

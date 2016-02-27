@@ -7,11 +7,13 @@ import com.kos.cafe.domain.PhotoDTO;
 import com.kos.cafe.service.CommentsServiceImpl;
 import com.kos.cafe.service.NewsServiceImpl;
 import com.kos.cafe.service.PhotoService;
+import com.kos.cafe.service.UserService;
 import com.kos.cafe.valid.NewsValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -33,6 +35,8 @@ public class AdminController {
     NewsServiceImpl newsService;
     @Autowired
     PhotoService photoService;
+    @Autowired
+    UserService userService;
 
 
     @RequestMapping(method = RequestMethod.GET)
@@ -125,6 +129,68 @@ public class AdminController {
             }
         }
 
+
+    }
+
+    @RequestMapping(value = "/users",method = RequestMethod.GET)
+    public ModelAndView usersList(ModelAndView model){
+
+        ModelAndView modelAndView = new ModelAndView("userslist");
+        modelAndView.addObject("user", getPrincipal());
+        modelAndView.addObject("usersList",userService.getAll());
+        return modelAndView;
+
+    }
+
+    @RequestMapping(value = "/userProfile" , method = RequestMethod.GET)
+    public ModelAndView newsPageFullItem(Model model,
+                                         @RequestParam(value = "id") long id) {
+        ModelAndView modelAndView = new ModelAndView("userProfile");
+        modelAndView.addObject("user", getPrincipal());
+        modelAndView.addObject("userItem", userService.getUser(id));
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/news_list",method = RequestMethod.GET)
+    public ModelAndView newsList(ModelAndView model){
+
+        ModelAndView modelAndView = new ModelAndView("newsList");
+        modelAndView.addObject("user", getPrincipal());
+        modelAndView.addObject("newsList",newsService.readAll());
+        return modelAndView;
+
+    }
+
+    @RequestMapping(value = "/delete_news",method = RequestMethod.GET)
+    public String  deleteNews(ModelAndView model,
+                                   @RequestParam(value = "id") long id){
+        newsService.delete(id);
+
+        model.addObject("user", getPrincipal());
+        model.addObject("newsList",newsService.readAll());
+        return "redirect:/admin/news_list";
+
+    }
+
+    @RequestMapping(value = "/delete_user",method = RequestMethod.GET)
+    public String  deleteUser(ModelAndView model,
+                              @RequestParam(value = "id") long id){
+        userService.delete(id);
+
+        model.addObject("user", getPrincipal());
+        model.addObject("usersList",userService.getAll());
+        return "redirect:/admin/users";
+
+    }
+
+    @RequestMapping(value = "/delete_comment",method = RequestMethod.GET)
+    public String  deleteComment(ModelAndView model,
+                              @RequestParam(value = "id") long id){
+
+        commentsService.delete(id);
+        model.addObject("user", getPrincipal());
+        model.addObject("commentsList",commentsService.readAll());
+        return "redirect:/admin/comments";
 
     }
 

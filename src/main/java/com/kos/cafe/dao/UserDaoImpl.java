@@ -36,6 +36,11 @@ public class UserDaoImpl implements UserDAO {
     }
 
     @Override
+    public User read(long id) throws SQLException {
+        return em.find(User.class, id);
+    }
+
+    @Override
     public User readByEmail(String email) throws SQLException{
         Query query = em.createQuery("select u FROM User u WHERE u.email LIKE :email", User.class);
         query.setParameter("email", email);
@@ -58,5 +63,18 @@ public class UserDaoImpl implements UserDAO {
             em.getTransaction().rollback();
             ex.printStackTrace();
         }
+    }
+
+    @Override
+    public List<User> readAll() {
+        Query query = em.createQuery("SELECT u from User u", User.class);
+        return query.getResultList();
+    }
+
+    @Override
+    public void delete(long id) {
+        em.getTransaction().begin();
+        em.remove(em.find(User.class,id));
+        em.getTransaction().commit();
     }
 }
