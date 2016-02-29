@@ -1,4 +1,4 @@
-п»ї@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+?@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
 
 body {
 	position:relative;
@@ -110,7 +110,7 @@ body {
 	height:34px;
 	
 	
-	border-radius: 6px 6px 0 0; /* Р·Р°РєСЂСѓРіР»РµРЅРёРµ СѓРіР»РѕРІ РґР»СЏ РІСЃРµС…, РєС‚Рѕ РїРѕРЅРёРјР°РµС‚ */
+	border-radius: 6px 6px 0 0; /* закругление углов для всех, кто понимает */
 	position:absolute;
 	top:30px;
 	background:url("../images/bg2.png");
@@ -350,6 +350,38 @@ textarea[type="text"] {
 	color:silver;
 }
 
+.news-f-content {
+	
+	width:95%;
+	min-height:300px;
+	border-bottom: 1px solid #FFFFFF;
+}
+
+.news-f-content h3 {
+	width:300px;
+	padding-top:10px;
+	padding-bottom:30px;
+	font-family: 'Open Sans', sans-serif;
+	font-size:18px;
+	font-weight:300;
+	color:#fff;
+	margin:0 auto;
+	padding-left:20px;
+	text-align:center;
+	
+}
+
+.news-f-content p {
+	color:#fff;
+	padding-left:20px;
+	padding-right:20px;
+	font-family: 'Open Sans', sans-serif;
+	font-size:16px;
+	font-weight:300;
+	line-height:15px;
+
+	
+}
 
 
 

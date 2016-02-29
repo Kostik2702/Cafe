@@ -1,9 +1,6 @@
 package com.kos.cafe.control;
 
-import com.kos.cafe.domain.News;
-import com.kos.cafe.domain.NewsDTO;
-import com.kos.cafe.domain.Photo;
-import com.kos.cafe.domain.PhotoDTO;
+import com.kos.cafe.domain.*;
 import com.kos.cafe.service.CommentsServiceImpl;
 import com.kos.cafe.service.NewsServiceImpl;
 import com.kos.cafe.service.PhotoService;
@@ -161,6 +158,16 @@ public class AdminController {
 
     }
 
+    @RequestMapping(value = "/photos_list",method = RequestMethod.GET)
+    public ModelAndView photosList(ModelAndView model){
+
+        ModelAndView modelAndView = new ModelAndView("photoslist");
+        modelAndView.addObject("user", getPrincipal());
+        modelAndView.addObject("photosList",photoService.readAllPhotos());
+        return modelAndView;
+
+    }
+
     @RequestMapping(value = "/delete_news",method = RequestMethod.GET)
     public String  deleteNews(ModelAndView model,
                                    @RequestParam(value = "id") long id){
@@ -194,6 +201,47 @@ public class AdminController {
 
     }
 
+
+    @RequestMapping(value = "/delete_photo",method = RequestMethod.GET)
+    public String  deletePhoto(ModelAndView model,
+                                 @RequestParam(value = "id") long id){
+
+        photoService.remove(id);
+        model.addObject("user", getPrincipal());
+        model.addObject("photosList",photoService.readAllPhotos());
+        return "redirect:/admin/photos_list";
+
+    }
+
+    @RequestMapping(value = "/watch_news" , method = RequestMethod.GET)
+    public ModelAndView watchNews(Model model,
+                                         @RequestParam(value = "id") long id) {
+        ModelAndView modelAndView = new ModelAndView("fullnewsAdmin");
+        modelAndView.addObject("user", getPrincipal());
+        modelAndView.addObject("newsItem",newsService.read(id));
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/edit_news" , method = RequestMethod.GET)
+    public ModelAndView editNews(Model model,
+                                  @RequestParam(value = "id") long id) {
+        ModelAndView modelAndView = new ModelAndView("editNews");
+        modelAndView.addObject("user", getPrincipal());
+        modelAndView.addObject("newsItem",newsService.read(id));
+        modelAndView.addObject("newsDTO", new EditNewsDTO(newsService.read(id).getSubject(),newsService.read(id).getText(),id));
+        return modelAndView;
+    }
+    @RequestMapping(value = "/edit_news" , method = RequestMethod.POST)
+    public String  editNewsAction(ModelAndView modelAndView,
+                                 @ModelAttribute(value = "newsDTO") EditNewsDTO newsDTO
+
+                                 ) {
+
+
+        newsService.update(newsDTO, newsDTO.getId());
+        return "redirect:/admin/watch_news?id="+newsDTO.getId()+"&success";
+
+    }
 
 
 

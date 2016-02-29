@@ -35,7 +35,9 @@ public class PhotoDAOImpl implements PhotoDAO {
     public void delete(long id) {
         Photo temp = em.find(Photo.class, id);
         if (temp!=null){
+            em.getTransaction().begin();
             em.remove(temp);
+            em.getTransaction().commit();
         }
     }
 

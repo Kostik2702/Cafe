@@ -135,37 +135,27 @@
     <div class="work-window-space">
       <div class="head-space">
         <div class="left-corner"></div>
-        <h3>Список отзывов</h3>
+        <h3>${newsItem.subject}</h3>
         <div class="right-corner"></div>
       </div>
       <div class="workspace scrollbar-inner">
         <div class="user-profile-info">
-          <div class="left-side-i">
-            <div class="avatar-u">
-              <img src = "<c:url value="/pages/images/user.jpg" />">
-            </div>
-          </div>
-          <div class="right-side-i">
+          <div class="news-f-content">
+            <h3>${newsItem.subject}</h3>
+            <p>
+                ${newsItem.text}
 
-            <div class="info-item-u">
-              <h4>E-mail:</h4>
-              <span id = "content-n-u">${userItem.email}</span>
-            </div>
-            <div class="info-item-u">
-              <h4>Имя:</h4>
-              <span id = "content-n-u">${userItem.name} ${userItem.surname}</span>
-            </div>
-            <div class="info-item-u">
-              <h4>Статус:</h4>
-              <span id = "content-n-u">${userItem.role}</span>
-            </div>
+
+
+            </p>
           </div>
           <div class="bottom-side-u">
-            <a href = "#" id = "delete"><i class="fa fa-trash fa-2x"></i></a>
-            <a href = "#" id = "edit"><i class="fa fa-pencil fa-2x"></i></a>
+            <a href = "<c:url value="/admin/delete_news?id=${newsItem.id}" />" id = "delete"><i class="fa fa-trash fa-2x"></i></a>
+            <a href = "<c:url value="/admin/edit_news?id=${newsItem.id}" />" id = "edit"><i class="fa fa-pencil fa-2x"></i></a>
 
           </div>
         </div>
+       </div>
 
 
 

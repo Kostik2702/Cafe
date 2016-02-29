@@ -139,33 +139,14 @@
         <div class="right-corner"></div>
       </div>
       <div class="workspace scrollbar-inner">
-        <div class="user-profile-info">
-          <div class="left-side-i">
-            <div class="avatar-u">
-              <img src = "<c:url value="/pages/images/user.jpg" />">
-            </div>
-          </div>
-          <div class="right-side-i">
-
-            <div class="info-item-u">
-              <h4>E-mail:</h4>
-              <span id = "content-n-u">${userItem.email}</span>
-            </div>
-            <div class="info-item-u">
-              <h4>Имя:</h4>
-              <span id = "content-n-u">${userItem.name} ${userItem.surname}</span>
-            </div>
-            <div class="info-item-u">
-              <h4>Статус:</h4>
-              <span id = "content-n-u">${userItem.role}</span>
-            </div>
-          </div>
-          <div class="bottom-side-u">
-            <a href = "#" id = "delete"><i class="fa fa-trash fa-2x"></i></a>
-            <a href = "#" id = "edit"><i class="fa fa-pencil fa-2x"></i></a>
+        <c:forEach items="${photosList}" var="photoItem">
+          <div class="user-info-item">
+            <h3>${photoItem.name} </h3>
+            <a href = "<c:url value="/admin/delete_photo?id=${photoItem.id}" />" id = "delete"><i class="fa fa-trash fa-2x"></i></a>
 
           </div>
-        </div>
+
+        </c:forEach>
 
 
 

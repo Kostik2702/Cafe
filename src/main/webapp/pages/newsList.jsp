@@ -91,7 +91,7 @@
       <ul class="menu-list news-menu-list">
         <li><a href="<c:url value="/admin/addnews" />"><i class="fa fa-plus"></i>Добавить новость</a></li>
 
-
+        <li><a href="<c:url value="/admin/news_list" />"><i class="fa fa-list"></i>Список</a></li>
 
       </ul>
     </div>
@@ -117,10 +117,13 @@
 
 
 
+
+
     <div class="menu-item">
       <h3 class="actions-button-open"><i class="fa  fa-list-alt"></i>  Действия  </h3>
       <ul class="menu-list actions-menu-list">
         <li><a class="btn" href="<c:url value="/admin/addphoto" />" ><i class="fa fa-photo"></i>Добавить фото</a></li>
+        <li><a class="btn" href="<c:url value="/admin/photos_list" />" ><i class="fa fa-list"></i>Список фото</a></li>
         <li><a class="btn" href="<c:url value="/logout" />" role="button"><i class="fa fa-sign-out"></i>Выход</a></li>
 
 
