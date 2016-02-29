@@ -3,6 +3,8 @@ package com.kos.cafe.service;
 
 import com.kos.cafe.dao.UserDAO;
 import com.kos.cafe.dao.UserDaoImpl;
+import com.kos.cafe.domain.Comment;
+import com.kos.cafe.domain.EditUserDTO;
 import com.kos.cafe.domain.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,8 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserDaoImpl userDAO;
+    @Autowired
+    CommentsService commentsService;
 
     @Override
     public User getUser(String login) {
@@ -63,7 +67,36 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void delete(long id) {
-        userDAO.delete(id);
+        try {
+            if (userDAO.read(id).getComments().isEmpty()){
+                userDAO.delete(id);
+            }   else {
+                User temp = userDAO.read(id);
+                for (Comment comment:temp.getComments()){
+                    commentsService.delete(comment.getId());
+                }
+
+                userDAO.delete(id);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void update(EditUserDTO dto) {
+        try {
+            User temp = userDAO.read(dto.getId());
+            temp.setLogin(dto.getLogin());
+            temp.setName(dto.getName());
+            temp.setSurname(dto.getSurname());
+            temp.setEmail(dto.getEmail());
+            temp.setRole(dto.getRole());
+            userDAO.update(temp);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 

@@ -1,6 +1,7 @@
 package com.kos.cafe.control;
 
 import com.kos.cafe.domain.*;
+import com.kos.cafe.domain.enums.UserRoleEnum;
 import com.kos.cafe.service.CommentsServiceImpl;
 import com.kos.cafe.service.NewsServiceImpl;
 import com.kos.cafe.service.PhotoService;
@@ -9,6 +10,7 @@ import com.kos.cafe.valid.NewsValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -21,6 +23,9 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.EnumSet;
 
 @Controller
 @RequestMapping("/admin")
@@ -34,6 +39,8 @@ public class AdminController {
     PhotoService photoService;
     @Autowired
     UserService userService;
+    @Autowired
+    BCryptPasswordEncoder encoder;
 
 
     @RequestMapping(method = RequestMethod.GET)
@@ -240,6 +247,44 @@ public class AdminController {
 
         newsService.update(newsDTO, newsDTO.getId());
         return "redirect:/admin/watch_news?id="+newsDTO.getId()+"&success";
+
+    }
+
+    @RequestMapping(value = "/edit_user" , method = RequestMethod.GET)
+    public ModelAndView editUser(Model model,
+                                 @RequestParam(value = "id") long id) {
+        ModelAndView modelAndView = new ModelAndView("usredit");
+        modelAndView.addObject("user", getPrincipal());
+        modelAndView.addObject("userDTO", new EditUserDTO(userService.getUser(id).getLogin(),userService.getUser(id).getPassword(),
+                userService.getUser(id).getName(), userService.getUser(id).getSurname(),
+                userService.getUser(id).getEmail(), userService.getUser(id).getRole(), id));
+
+        ArrayList<String> roles = new ArrayList<String>();
+
+        roles.add(UserRoleEnum.USER.name());
+        roles.add(UserRoleEnum.ADMIN.name());
+
+        for (int i = 0; i <roles.size() ; i++) {
+            if (roles.get(i).equals(userService.getUser(id).getRole())){
+                roles.remove(roles.get(i));
+            }
+        }
+
+        modelAndView.addObject("rolesList", roles);
+
+
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/edit_user" , method = RequestMethod.POST)
+    public String  editUserAction(ModelAndView modelAndView,
+                                  @ModelAttribute(value = "userDTO") EditUserDTO userDTO
+
+    ) {
+
+        userService.update(userDTO);
+
+        return "redirect:/admin/users?success";
 
     }
 

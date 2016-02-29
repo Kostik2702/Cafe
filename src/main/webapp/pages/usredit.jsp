@@ -2,18 +2,16 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="author" content="">
+
+
+
   <title>Панель администратора</title>
   <link   href="<c:url value="/pages/css/reset.css"/>" rel="stylesheet">
   <link   href="<c:url value="/pages/css/admin.css"/>" rel="stylesheet">
-  <link   href="<c:url value="/pages/css/com-list.css"/>" rel="stylesheet">
   <link   href="<c:url value="/pages/css/jquery.scrollbar.css"/>" rel="stylesheet">
   <link   href="<c:url value="/pages/css/font-awesome.css"/>" rel="stylesheet">
   <link  href= "<c:url value="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>" rel="stylesheet">
@@ -80,6 +78,7 @@
   </script>
 </head>
 <body>
+
 <sec:authorize access="!isAuthenticated()">
   <p><a class="btn btn-lg btn-success" href="<c:url value="/login" />" role="button">Войти</a></p>
 </sec:authorize>
@@ -135,28 +134,43 @@
     <div class="work-window-space">
       <div class="head-space">
         <div class="left-corner"></div>
-        <h3>Список отзывов</h3>
+        <h3>Добавить Новость!</h3>
         <div class="right-corner"></div>
       </div>
       <div class="workspace scrollbar-inner">
-        <c:forEach items="${usersList}" var="userItem">
-          <div class="user-info-item">
-            <h3>${userItem.name}  ${userItem.surname}</h3>
-            <a href = "<c:url value="/admin/delete_user?id=${userItem.id}" />" id = "delete"><i class="fa fa-trash fa-2x"></i></a>
-            <a href = "<c:url value="/admin/edit_user?id=${userItem.id}" />" id = "edit"><i class="fa fa-pencil fa-2x"></i></a>
-            <a href = "<c:url value="/admin/userProfile?id=${userItem.id}" />" id = "edit"><i class="fa  fa-eye fa-2x"></i></a>
+        <c:url value="/admin/edit_user?${_csrf.parameterName}=${_csrf.token}" var="editUser" />
+
+        <form:form id="add-news-form" action="${editUser}" method="post" modelAttribute="userDTO">
+          <h3>Имя</h3>
+          <form:input path="name" type="text" id="news-title" name="name" />
+          <h3>Фамилия</h3>
+          <form:input path="surname" type="text" id="news-title" name="surname" />
+          <h3>Логин</h3>
+          <form:input path="login" type="text" id="news-title" name="login" />
+          <h3>Емейл</h3>
+          <form:input path="email" type="text" id="news-title" name="email" />
+          <form:input path="id" type="hidden" id="news-title" name="id" />
+          <p><form:select path="role" size="3">
+            <option disabled>Установите статус</option>
+            <option selected value="${userDTO.role}">${userDTO.role}</option>
+            <c:forEach items="${rolesList}" var="roleItem">
+              <option value="${roleItem}">${roleItem}</option>
+            </c:forEach>
+
+
+
+          </form:select>
+          </p>
+
+          <div class="comment-button-spacer">
+            <button id="comment-button" type="submit">Опубликовать</button>
           </div>
-
-        </c:forEach>
-
+        </form:form>
 
 
       </div>
     </div>
   </div>
-
-
 </sec:authorize>
-
 </body>
 </html>

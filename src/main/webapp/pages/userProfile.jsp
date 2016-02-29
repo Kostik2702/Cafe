@@ -161,8 +161,8 @@
             </div>
           </div>
           <div class="bottom-side-u">
-            <a href = "#" id = "delete"><i class="fa fa-trash fa-2x"></i></a>
-            <a href = "#" id = "edit"><i class="fa fa-pencil fa-2x"></i></a>
+            <a href = "<c:url value="/admin/delete_user?id=${userItem.id}" />" id = "delete"><i class="fa fa-trash fa-2x"></i></a>
+            <a href = "<c:url value="/admin/userProfile?id=${userItem.id}" />" id = "edit"><i class="fa fa-pencil fa-2x"></i></a>
 
           </div>
         </div>

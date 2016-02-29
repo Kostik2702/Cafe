@@ -1,6 +1,7 @@
 package com.kos.cafe.service;
 
 
+import com.kos.cafe.domain.EditUserDTO;
 import com.kos.cafe.domain.User;
 
 import java.util.List;
@@ -13,4 +14,5 @@ public interface UserService {
     User registerNewUser(User user);
     List<User> getAll();
     void delete(long id);
+    void update(EditUserDTO dto);
 }

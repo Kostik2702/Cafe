@@ -354,7 +354,6 @@ textarea[type="text"] {
 	
 	width:95%;
 	min-height:300px;
-	border-bottom: 1px solid #FFFFFF;
 }
 
 .news-f-content h3 {
@@ -379,7 +378,29 @@ textarea[type="text"] {
 	font-size:16px;
 	font-weight:300;
 	line-height:15px;
+	
+}
 
+#add-news-form select {
+	width:85%;
+	height:50px;
+	background:none;
+	border:1px solid #fff;
+	color:#fff;
+	margin:20px 50px;
+}
+
+#add-news-form  h3 {
+	width:300px;
+	padding-top:10px;
+
+	font-family: 'Open Sans', sans-serif;
+	font-size:18px;
+	font-weight:300;
+	color:#fff;
+	
+	padding-left:50px;
+	text-align:left;
 	
 }
 
