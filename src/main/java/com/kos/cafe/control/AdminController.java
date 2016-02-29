@@ -255,7 +255,7 @@ public class AdminController {
                                  @RequestParam(value = "id") long id) {
         ModelAndView modelAndView = new ModelAndView("usredit");
         modelAndView.addObject("user", getPrincipal());
-        modelAndView.addObject("userDTO", new EditUserDTO(userService.getUser(id).getLogin(),userService.getUser(id).getPassword(),
+        modelAndView.addObject("userDTO", new EditUserDTO(userService.getUser(id).getLogin(),
                 userService.getUser(id).getName(), userService.getUser(id).getSurname(),
                 userService.getUser(id).getEmail(), userService.getUser(id).getRole(), id));
 

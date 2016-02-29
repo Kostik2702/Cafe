@@ -20,6 +20,16 @@ public class EditUserDTO {
         this.id = id;
     }
 
+    public EditUserDTO(String login,  String name, String surname, String email, String role, long id) {
+        this.login = login;
+
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.role = role;
+        this.id = id;
+    }
+
     public EditUserDTO() {
     }
 

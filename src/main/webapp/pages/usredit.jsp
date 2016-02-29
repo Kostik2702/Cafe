@@ -147,6 +147,8 @@
           <form:input path="surname" type="text" id="news-title" name="surname" />
           <h3>Логин</h3>
           <form:input path="login" type="text" id="news-title" name="login" />
+          <h3>Пароль</h3>
+          <form:input path="password" type="text" id="news-title" name="login" />
           <h3>Емейл</h3>
           <form:input path="email" type="text" id="news-title" name="email" />
           <form:input path="id" type="hidden" id="news-title" name="id" />

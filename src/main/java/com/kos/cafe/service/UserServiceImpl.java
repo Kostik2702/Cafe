@@ -8,6 +8,7 @@ import com.kos.cafe.domain.EditUserDTO;
 import com.kos.cafe.domain.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,6 +23,8 @@ public class UserServiceImpl implements UserService {
     private UserDaoImpl userDAO;
     @Autowired
     CommentsService commentsService;
+    @Autowired
+    BCryptPasswordEncoder encoder;
 
     @Override
     public User getUser(String login) {
@@ -89,6 +92,7 @@ public class UserServiceImpl implements UserService {
         try {
             User temp = userDAO.read(dto.getId());
             temp.setLogin(dto.getLogin());
+            temp.setPassword(encoder.encode(dto.getPassword()));
             temp.setName(dto.getName());
             temp.setSurname(dto.getSurname());
             temp.setEmail(dto.getEmail());
