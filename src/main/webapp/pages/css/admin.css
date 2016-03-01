@@ -1,4 +1,4 @@
-?@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
 
 body {
 	position:relative;
@@ -35,7 +35,7 @@ body {
 .menu-list {
 	width:75%;
 	max-height:200px;
-	display:none;
+	display: none;
 	margin-right:20px;
 	padding-top:10px;
 	position:relative;
@@ -68,7 +68,7 @@ body {
 	min-height:35px;
 	margin-top:0px;
 	max-height:350px;
-	
+	transition: all 0.3s linear;
 }
 
 .wrap {
@@ -402,6 +402,15 @@ textarea[type="text"] {
 	padding-left:50px;
 	text-align:left;
 	
+}
+
+.closed {
+
+	height: 0px;
+}
+
+.open {
+
 }
 
 

@@ -61,7 +61,7 @@ body {
 	width:300px;
 	height:980px;
 	background:url("../images/menu2.png");
-	display:none;
+	/*display:none;*/
 	
 }
 
@@ -111,6 +111,10 @@ body {
 	width:300px;
 	height:20px;
 	background:rgba(0,0,0,0.3);
+	color:#fff;
+	font-family: 'Bad Script', cursive;
+	font-size:14px;
+	text-align:center;
 }
 
 .arrow1  {

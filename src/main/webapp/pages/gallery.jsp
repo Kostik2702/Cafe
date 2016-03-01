@@ -27,12 +27,13 @@
 
   <script type="text/javascript">
     $(document).ready(function(){
+      /*
       $(".arrow").click(function(){
 
         $("#nav-menu").slideToggle("slow");
         $(this).toggleClass("active"); return false;
       });
-
+*/
       jQuery('.scrollbar-inner').scrollbar();
 
     }	);
@@ -94,10 +95,8 @@
         <ul>
           <li><a href="<c:url value="/" />">На главную</a></li>
           <li><a href="<c:url value="/news" />">Новости</a></li>
-
           <li><a href="<c:url value="/aboutUs" />">О нас</a></li>
-          <li><a href="<c:url value="/ourmenu" />">Наше меню</a></li>
-          <li><a href="<c:url value="/reserve" />">Резерв столика</a></li>
+
           <li><a href="<c:url value="/comments" />">Отзывы</a></li>
           <sec:authorize access="!isAuthenticated()">
             <li><a href="<c:url value="/loginpage" />">Авторизация</a></li>
@@ -108,9 +107,7 @@
         </ul>
       </div>
     </div>
-    <div class="arrow">
 
-    </div>
 
   </div>
 </div>

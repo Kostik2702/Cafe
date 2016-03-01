@@ -30,11 +30,6 @@ public class MainController {
 
 
 
-    @RequestMapping(value = "/loginpage", method = RequestMethod.GET)
-    public String loginp(ModelMap model) {
-        model.addAttribute("user", getPrincipal());
-        return "login";
-    }
 
     @RequestMapping(value = "/aboutUs", method = RequestMethod.GET)
     public String aboutus(ModelMap model) {
@@ -42,11 +37,7 @@ public class MainController {
         return "aboutus";
     }
 
-    @RequestMapping(value = "/db", method = RequestMethod.GET)
-    public String dbaPage(ModelMap model) {
-        model.addAttribute("user", getPrincipal());
-        return "dba";
-    }
+
 
     @RequestMapping(value = "/Access_Denied", method = RequestMethod.GET)
     public String accessDeniedPage(ModelMap model) {
@@ -71,17 +62,9 @@ public class MainController {
 
 
 
-    @RequestMapping(value = {  "/reserve" }, method = RequestMethod.GET)
-    public String reservePage(ModelMap model) {
-        model.addAttribute("user", getPrincipal());
-        return "reserve";
-    }
 
-    @RequestMapping(value = "/ourmenu", method = RequestMethod.GET)
-    public String menuPage(ModelMap model) {
-        model.addAttribute("user", getPrincipal());
-        return "ourmenu";
-    }
+
+
 
 
 

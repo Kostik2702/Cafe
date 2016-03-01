@@ -27,12 +27,13 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
+        /*
         $(".arrow").click(function(){
 
             $("#nav-menu").slideToggle("slow");
             $(this).toggleClass("active"); return false;
         });
-
+*/
 
 
     }	);
@@ -85,16 +86,12 @@
                     <li><a href="<c:url value="/news" />">Новости</a></li>
                     <li><a href="<c:url value="/gallery" />">Галерея</a></li>
                     <li><a href="<c:url value="/aboutUs" />">О нас</a></li>
-                    <li><a href="<c:url value="/ourmenu" />">Наше меню</a></li>
-                    <li><a href="<c:url value="/reserve" />">Резерв столика</a></li>
                     <li><a href="<c:url value="/comments" />">Отзывы</a></li>
 
                 </ul>
             </div>
         </div>
-        <div class="arrow">
 
-        </div>
 
     </div>
 </div>
