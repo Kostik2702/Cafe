@@ -32,44 +32,9 @@
 
   <script type="text/javascript">
     $(document).ready(function(){
-      $(".news-button-open").click(function(){
+      $(".buttonO").click(function(){
 
-        $(".news-menu-list").slideToggle("slow");
-
-
-      });
-
-      $(".comments-button-open").click(function(){
-
-        $(".comments-menu-list").slideToggle("slow");
-
-
-      });
-
-      $(".sends-button-open").click(function(){
-
-        $(".sends-menu-list").slideToggle("slow");
-
-
-      });
-
-      $(".users-button-open").click(function(){
-
-        $(".users-menu-list").slideToggle("slow");
-
-
-      });
-
-      $(".menus-button-open").click(function(){
-
-        $(".menus-menu-list").slideToggle("slow");
-
-
-      });
-
-      $(".actions-button-open").click(function(){
-
-        $(".actions-menu-list").slideToggle("slow");
+        $(this).parent().children("ul").slideToggle("slow");
 
 
       });
@@ -87,8 +52,8 @@
   <div class="sidebar">
     <h3>Вы авторизированы:<span><sec:authentication property="principal.username" /></span></h3>
     <div class="menu-item">
-      <h3 class="news-button-open"><i class="fa fa-newspaper-o"></i>  Новости </h3>
-      <ul class="menu-list news-menu-list">
+      <h3 class="news-button-open buttonO"><i class="fa fa-newspaper-o"></i>  Новости </h3>
+      <ul class="menu-list news-menu-list ">
         <li><a href="<c:url value="/admin/addnews" />"><i class="fa fa-plus"></i>Добавить новость</a></li>
 
         <li><a href="<c:url value="/admin/news_list" />"><i class="fa fa-list"></i>Список</a></li>
@@ -96,8 +61,8 @@
       </ul>
     </div>
     <div class="menu-item">
-      <h3 class="comments-button-open"><i class="fa fa-comments-o"></i>  Отзывы  </h3>
-      <ul class="menu-list comments-menu-list">
+      <h3 class="comments-button-open buttonO" ><i class="fa fa-comments-o"></i>  Отзывы  </h3>
+      <ul class="menu-list comments-menu-list ">
 
 
         <li><a href="<c:url value="/admin/comments" />"><i class="fa fa-list"></i>Список</a></li>
@@ -106,7 +71,7 @@
     </div>
 
     <div class="menu-item">
-      <h3 class="users-button-open"><i class="fa  fa-users"></i>  Пользователи  </h3>
+      <h3 class="users-button-open buttonO" ><i class="fa  fa-users"></i>  Пользователи  </h3>
       <ul class="menu-list users-menu-list">
 
         <li><a href="<c:url value="/admin/users" />"><i class="fa fa-list"></i>Список</a></li>
@@ -120,8 +85,8 @@
 
 
     <div class="menu-item">
-      <h3 class="actions-button-open"><i class="fa  fa-list-alt"></i>  Действия  </h3>
-      <ul class="menu-list actions-menu-list">
+      <h3 class="actions-button-open buttonO" ><i class="fa  fa-list-alt"></i>  Действия  </h3>
+      <ul class="menu-list actions-menu-list ">
         <li><a class="btn" href="<c:url value="/admin/addphoto" />" ><i class="fa fa-photo"></i>Добавить фото</a></li>
         <li><a class="btn" href="<c:url value="/admin/photos_list" />" ><i class="fa fa-list"></i>Список фото</a></li>
         <li><a class="btn" href="<c:url value="/logout" />" role="button"><i class="fa fa-sign-out"></i>Выход</a></li>
