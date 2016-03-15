@@ -50,6 +50,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User getUserByMail(String email) throws SQLException {
+        return userDAO.readByEmail(email);
+    }
+
+    @Override
     public User registerNewUser(User user)  {
         boolean logCheck = usernameExcepted(user.getLogin());
         boolean mailCheck = emailExcepted(user.getEmail());

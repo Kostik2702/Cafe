@@ -1,4 +1,5 @@
 package com.kos.cafe.service;
+import java.util.List;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -10,18 +11,34 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import com.kos.cafe.domain.EmailMessageDTO;
 import com.kos.cafe.domain.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-/**
- * Created by Олександр on 03.03.2016.
- */
-public class MailService {
-    private final static String USER_NAME ="userName";//add username of your email
-    private final static String PASSWORD ="password";//add your password
-    private final static String PARUS_EMAIL ="parusEmail@gmail.com";//add your email
-    private User user;
+@Service
+public class MailService implements IEmailService {
+/*
+    private final static String PASSWORD ="";//add your password
+    private final static String PALUBA_EMAIL ="";//add your email
 
-    public void sendEmail(User user,String subject,String messageText){
+*/
+    @Autowired
+    UserService userService;
+
+
+
+    @Override
+    public void sendAll(User admin, EmailMessageDTO messageDTO) {
+        List<User> users = userService.getAll();
+        for (User user : users) {
+            if (!user.getEmail().equals(admin.getEmail())){
+                sendEmail(user,messageDTO,admin);
+            }
+        }
+    }
+    @Override
+    public void sendEmail(User user, EmailMessageDTO messageDTO, final User admin){
         Properties props = new Properties();
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.auth", "true");
@@ -32,16 +49,16 @@ public class MailService {
         Session session = Session.getInstance(props,
                 new javax.mail.Authenticator() {
                     protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication(USER_NAME, PASSWORD);
+                        return new PasswordAuthentication(admin.getEmail(), admin.getPassword());
                     }
                 });
         try {
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(PARUS_EMAIL));
+            message.setFrom(new InternetAddress(admin.getEmail()));
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(user.getEmail()));
-            message.setSubject(subject);
-            message.setText(messageText);
+            message.setSubject(messageDTO.getSubject());
+            message.setText(messageDTO.getText());
             Transport.send(message);
         } catch (MessagingException e) {
             throw new RuntimeException(e);

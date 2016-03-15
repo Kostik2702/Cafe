@@ -2,10 +2,7 @@ package com.kos.cafe.control;
 
 import com.kos.cafe.domain.*;
 import com.kos.cafe.domain.enums.UserRoleEnum;
-import com.kos.cafe.service.CommentsServiceImpl;
-import com.kos.cafe.service.NewsServiceImpl;
-import com.kos.cafe.service.PhotoService;
-import com.kos.cafe.service.UserService;
+import com.kos.cafe.service.*;
 import com.kos.cafe.valid.NewsValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -23,9 +20,11 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.EnumSet;
+import java.util.List;
 
 @Controller
 @RequestMapping("/admin")
@@ -41,6 +40,8 @@ public class AdminController {
     UserService userService;
     @Autowired
     BCryptPasswordEncoder encoder;
+    @Autowired
+    IEmailService emailService;
 
 
     @RequestMapping(method = RequestMethod.GET)
@@ -285,6 +286,43 @@ public class AdminController {
         userService.update(userDTO);
 
         return "redirect:/admin/users?success";
+
+    }
+
+    @RequestMapping(value = "/send_mail",method = RequestMethod.GET)
+    public ModelAndView sendMailPage(ModelAndView model){
+
+        ModelAndView modelAndView = new ModelAndView("sendmail");
+        modelAndView.addObject("user", getPrincipal());
+        modelAndView.addObject("emailDTO", new EmailMessageDTO("Без темы","","all"));
+        List<User> usersList = userService.getAll();
+        usersList.remove(userService.getUser(getPrincipal()));
+        modelAndView.addObject("usersList", usersList);
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/send_mail" , method = RequestMethod.POST)
+    public String  sendMailAction(ModelAndView modelAndView,
+                                  @ModelAttribute(value = "emailDTO") EmailMessageDTO messageDTO
+
+    )  {
+
+        if (messageDTO.getToAdress().equals("all")){
+            emailService.sendAll(userService.getUser(getPrincipal()),messageDTO);
+            return "redirect:/admin/users?success";
+        }   else {
+            try {
+                emailService.sendEmail(userService.getUserByMail(messageDTO.getToAdress()),messageDTO,userService.getUser(getPrincipal()));
+                return "redirect:/admin/users?success";
+            } catch (SQLException e) {
+
+                e.printStackTrace();
+                return "redirect:/admin/users?error";
+            }
+
+        }
+
+
 
     }
 

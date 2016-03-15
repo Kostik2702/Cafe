@@ -104,14 +104,29 @@
         <div class="right-corner"></div>
       </div>
       <div class="workspace scrollbar-inner">
-        <c:url value="/admin/addnews?${_csrf.parameterName}=${_csrf.token}" var="addnews" />
-        <form:form id="add-news-form" action="${addnews}" method="POST" modelAttribute="news">
-          <form:input path="subject"  id="news-title"  placeholder=" Заголовок"/>
+        <c:url value="/admin/send_mail?${_csrf.parameterName}=${_csrf.token}" var="sendMail" />
+
+        <form:form id="add-news-form" action="${sendMail}" method="post" modelAttribute="emailDTO">
+          <h3>Тема письма</h3>
+          <form:input path="subject" type="text" id="news-title" name="subject" />
           <form:textarea path="text"  id="news-text"  placeholder=" Текст Новости"></form:textarea>
+          <p><form:select path="toAdress" size="3">
+            <option disabled>Кому отправить</option>
+            <option selected value="all">ALL</option>
+            <c:forEach items="${usersList}" var="userItem">
+              <option value="${userItem.email}">${userItem.name} ${userItem.surname}</option>
+            </c:forEach>
+
+
+
+          </form:select>
+          </p>
+
           <div class="comment-button-spacer">
             <button id="comment-button" type="submit">Опубликовать</button>
           </div>
         </form:form>
+
 
       </div>
     </div>

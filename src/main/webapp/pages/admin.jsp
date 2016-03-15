@@ -137,6 +137,7 @@
   <div class="menu-item">
     <h3 class="actions-button-open buttonO" ><i class="fa  fa-list-alt"></i>  Действия  </h3>
     <ul class="menu-list actions-menu-list ">
+      <li><a class="btn" href="<c:url value="/admin/send_mail" />" ><i class="fa fa-mail-forward"></i>Отправить письмо</a></li>
       <li><a class="btn" href="<c:url value="/admin/addphoto" />" ><i class="fa fa-photo"></i>Добавить фото</a></li>
       <li><a class="btn" href="<c:url value="/admin/photos_list" />" ><i class="fa fa-list"></i>Список фото</a></li>
       <li><a class="btn" href="<c:url value="/logout" />" role="button"><i class="fa fa-sign-out"></i>Выход</a></li>
