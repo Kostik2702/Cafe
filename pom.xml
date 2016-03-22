@@ -168,6 +168,12 @@
             <artifactId>activation</artifactId>
             <version>1.1.1</version>
         </dependency>
+        <dependency>
+            <groupId>com.heroku.sdk</groupId>
+            <artifactId>heroku-maven-plugin</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
 
 
 
@@ -188,6 +194,11 @@
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.heroku.sdk</groupId>
+                <artifactId>heroku-maven-plugin</artifactId>
+                <version>1.0.0</version>
             </plugin>
 
 
@@ -212,6 +223,7 @@
                     </execution>
                 </executions>
             </plugin>
+
 
         </plugins>
     </build>
